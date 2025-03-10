@@ -1,0 +1,167 @@
+// This is your Prisma schema file
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                String      @id @default(cuid())
+  name              String?
+  email             String      @unique
+  emailVerified     DateTime?
+  image             String?
+  hashedPassword    String?
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+  accounts          Account[]
+  sessions          Session[]
+  documents         Document[]
+  signatures        Signature[]
+  templates         Template[]
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Document {
+  id               String            @id @default(cuid())
+  title            String
+  description      String?
+  fileUrl          String
+  fileKey          String
+  status           DocumentStatus    @default(DRAFT)
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  userId           String
+  user             User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  documentSigners  DocumentSigner[]
+  documentFields   DocumentField[]
+  documentActivity DocumentActivity[]
+}
+
+enum DocumentStatus {
+  DRAFT
+  PENDING
+  COMPLETED
+  CANCELLED
+}
+
+model DocumentSigner {
+  id         String       @id @default(cuid())
+  email      String
+  name       String?
+  status     SignerStatus @default(PENDING)
+  documentId String
+  document   Document     @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  signedAt   DateTime?
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+  fields     DocumentField[]
+
+  @@unique([documentId, email])
+}
+
+enum SignerStatus {
+  PENDING
+  VIEWED
+  SIGNED
+  DECLINED
+}
+
+model DocumentField {
+  id         String          @id @default(cuid())
+  type       FieldType
+  page       Int
+  xPosition  Float
+  yPosition  Float
+  width      Float
+  height     Float
+  value      String?
+  required   Boolean         @default(true)
+  documentId String
+  document   Document        @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  signerId   String?
+  signer     DocumentSigner? @relation(fields: [signerId], references: [id])
+  createdAt  DateTime        @default(now())
+  updatedAt  DateTime        @updatedAt
+}
+
+enum FieldType {
+  SIGNATURE
+  TEXT
+  DATE
+  CHECKBOX
+  INITIAL
+}
+
+model DocumentActivity {
+  id         String   @id @default(cuid())
+  action     String
+  details    String?
+  ipAddress  String?
+  userAgent  String?
+  documentId String
+  document   Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  userId     String?
+  createdAt  DateTime @default(now())
+}
+
+model Signature {
+  id        String   @id @default(cuid())
+  imageUrl  String
+  imageKey  String
+  isDefault Boolean  @default(false)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Template {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  fileUrl     String
+  fileKey     String
+  isPublic    Boolean  @default(false)
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
