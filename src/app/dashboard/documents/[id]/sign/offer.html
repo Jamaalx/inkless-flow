@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get a personalized consultation and quote for Zedzen's AI and delivery marketing solutions for your business.">
+    <title>Get an Offer | Zedzen</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section (Same across all pages) -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Zedzen Logo">
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="help.html">Help Center</a></li>
+                </ul>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+            <div class="cta-button">
+                <a href="offer.html" class="btn btn-primary active">Get an Offer</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Banner Section -->
+    <section class="page-banner">
+        <div class="container">
+            <h1>Get a Personalized Offer</h1>
+            <p>Request a consultation and receive a tailored proposal for your business needs</p>
+        </div>
+    </section>
+
+    <!-- Offer Form Section -->
+    <section class="offer-form-section">
+        <div class="container">
+            <div class="offer-content">
+                <div class="form-container">
+                    <h2>Tell Us About Your Project</h2>
+                    <p>Complete the form below and our team will reach out to schedule a consultation.</p>
+                    
+                    <form id="offerForm" class="offer-form">
+                        <!-- Personal Information -->
+                        <div class="form-section">
+                            <h3>Contact Information</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="fullName">Full Name*</label>
+                                    <input type="text" id="fullName" name="fullName" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="companyName">Company Name*</label>
+                                    <input type="text" id="companyName" name="companyName" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email Address*</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="phone">Phone Number*</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="jobTitle">Job Title</label>
+                                <input type="text" id="jobTitle" name="jobTitle">
+                            </div>
+                        </div>
+                        
+                        <!-- Business Information -->
+                        <div class="form-section">
+                            <h3>Business Information</h3>
+                            
+                            <div class="form-group">
+                                <label for="industry">Industry*</label>
+                                <select id="industry" name="industry" required>
+                                    <option value="" disabled selected>Select your industry</option>
+                                    <option value="ecommerce">E-commerce</option>
+                                    <option value="retail">Retail</option>
+                                    <option value="technology">Technology/SaaS</option>
+                                    <option value="healthcare">Healthcare</option>
+                                    <option value="finance">Finance/Banking</option>
+                                    <option value="manufacturing">Manufacturing</option>
+                                    <option value="education">Education</option>
+                                    <option value="hospitality">Hospitality/Travel</option>
+                                    <option value="media">Media/Entertainment</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="companySize">Company Size*</label>
+                                <select id="companySize" name="companySize" required>
+                                    <option value="" disabled selected>Select company size</option>
+                                    <option value="1-10">1-10 employees</option>
+                                    <option value="11-50">11-50 employees</option>
+                                    <option value="51-200">51-200 employees</option>
+                                    <option value="201-500">201-500 employees</option>
+                                    <option value="501-1000">501-1000 employees</option>
+                                    <option value="1000+">1000+ employees</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Project Information -->
+                        <div class="form-section">
+                            <h3>Project Details</h3>
+                            
+                            <div class="form-group">
+                                <label>Services You're Interested In*</label>
+                                <div class="checkbox-group">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="aiConsulting" name="services" value="AI Consulting">
+                                        <label for="aiConsulting">AI Consulting</label>
+                                    </div>
+                                    
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="deliveryMarketing" name="services" value="Delivery Marketing">
+                                        <label for="deliveryMarketing">Delivery Marketing</label>
+                                    </div>
+                                    
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="automation" name="services" value="Automation">
+                                        <label for="automation">Automation</label>
+                                    </div>
+                                    
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="analytics" name="services" value="Analytics">
+                                        <label for="analytics">Analytics</label>
+                                    </div>
+                                    
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="other" name="services" value="Other">
+                                        <label for="other">Other</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="projectTimeline">Desired Timeline*</label>
+                                <select id="projectTimeline" name="projectTimeline" required>
+                                    <option value="" disabled selected>Select timeline</option>
+                                    <option value="immediate">Immediate (ASAP)</option>
+                                    <option value="1month">Within 1 month</option>
+                                    <option value="3months">Within 3 months</option>
+                                    <option value="6months">Within 6 months</option>
+                                    <option value="flexible">Flexible</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="budget">Budget Range</label>
+                                <select id="budget" name="budget">
+                                    <option value="" disabled selected>Select budget range</option>
+                                    <option value="under5k">Under $5,000</option>
+                                    <option value="5k-10k">$5,000 - $10,000</option>
+                                    <option value="10k-25k">$10,000 - $25,000</option>
+                                    <option value="25k-50k">$25,000 - $50,000</option>
+                                    <option value="50k-100k">$50,000 - $100,000</option>
+                                    <option value="over100k">Over $100,000</option>
+                                    <option value="undecided">Undecided/Need guidance</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="projectDescription">Project Description*</label>
+                                <textarea id="projectDescription" name="projectDescription" rows="5" required placeholder="Please describe your project, challenges you're facing, and your goals."></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="hearAbout">How did you hear about us?</label>
+                                <select id="hearAbout" name="hearAbout">
+                                    <option value="" disabled selected>Select an option</option>
+                                    <option value="search">Search Engine</option>
+                                    <option value="social">Social Media</option>
+                                    <option value="referral">Referral</option>
+                                    <option value="event">Event/Conference</option>
+                                    <option value="press">Press/Media</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Communication Preferences -->
+                        <div class="form-section">
+                            <h3>Communication Preferences</h3>
+                            
+                            <div class="form-group">
+                                <label>Preferred Contact Method*</label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="contactEmail" name="contactPreference" value="Email" checked>
+                                        <label for="contactEmail">Email</label>
+                                    </div>
+                                    
+                                    <div class="radio-item">
+                                        <input type="radio" id="contactPhone" name="contactPreference" value="Phone">
+                                        <label for="contactPhone">Phone</label>
+                                    </div>
+                                    
+                                    <div class="radio-item">
+                                        <input type="radio" id="contactVideo" name="contactPreference" value="Video Call">
+                                        <label for="contactVideo">Video Call</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group privacy-policy">
+                                <input type="checkbox" id="privacyAgreement" name="privacyAgreement" required>
+                                <label for="privacyAgreement">I agree to the <a href="#">Privacy Policy</a> and consent to Zedzen contacting me regarding my inquiry.*</label>
+                            </div>
+                            
+                            <div class="form-group newsletter-signup">
+                                <input type="checkbox" id="newsletterSignup" name="newsletterSignup">
+                                <label for="newsletterSignup">I'd like to receive the Zedzen newsletter with AI insights and industry updates.</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-lg">Submit Request</button>
+                        </div>
+                        
+                        <div class="form-note">
+                            <p>*Required fields</p>
+                            <p>We typically respond to all inquiries within 1 business day.</p>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="offer-sidebar">
+                    <div class="sidebar-section what-to-expect">
+                        <h3>What to Expect</h3>
+                        <ul>
+                            <li>
+                                <div class="step-icon"><i class="fas fa-envelope"></i></div>
+                                <div class="step-content">
+                                    <h4>1. Confirmation Email</h4>
+                                    <p>You'll receive an immediate confirmation of your submission.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="step-icon"><i class="fas fa-phone-alt"></i></div>
+                                <div class="step-content">
+                                    <h4>2. Initial Consultation</h4>
+                                    <p>Our team will contact you within 24 hours to schedule a consultation.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="step-icon"><i class="fas fa-file-alt"></i></div>
+                                <div class="step-content">
+                                    <h4>3. Custom Proposal</h4>
+                                    <p>We'll develop a tailored proposal based on your specific needs.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="step-icon"><i class="fas fa-handshake"></i></div>
+                                <div class="step-content">
+                                    <h4>4. Partnership</h4>
+                                    <p>Once approved, we'll begin our collaboration to achieve your goals.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-section testimonial-highlight">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <blockquote>
+                            <p>Working with Zedzen transformed our delivery marketing strategy. Their AI solutions helped us increase customer engagement by 45% and boost conversions by 32%.</p>
+                            <cite>
+                                <img src="assets/testimonial-author-1.jpg" alt="John Smith">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span>Marketing Director, Global Foods</span>
+                                </div>
+                            </cite>
+                        </blockquote>
+                    </div>
+                    
+                    <div class="sidebar-section contact-info">
+                        <h3>Need Help?</h3>
+                        <p>If you have any questions or prefer to speak with someone directly:</p>
+                        <ul>
+                            <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                            <li><i class="fas fa-envelope"></i> info@zedzen.com</li>
+                            <li><i class="fas fa-clock"></i> Mon-Fri, 9am-5pm PT</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories Section -->
+    <section class="success-stories-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Success Stories</h2>
+                <p>See how we've helped businesses like yours</p>
+            </div>
+            
+            <div class="success-stories-grid">
+                <div class="success-story-card">
+                    <div class="success-story-image">
+                        <img src="assets/success-story-1.jpg" alt="E-commerce Success Story">
+                    </div>
+                    <div class="success-story-content">
+                        <h3>E-commerce Revenue Growth</h3>
+                        <p>Implemented AI-powered recommendation engine resulting in 45% increase in cross-selling.</p>
+                        <div class="result-highlight">
+                            <span class="result-number">45%</span>
+                            <span class="result-label">Revenue Increase</span>
+                        </div>
+                        <a href="portfolio.html#case-study-1" class="btn btn-secondary">View Case Study</a>
+                    </div>
+                </div>
+                
+                <div class="success-story-card">
+                    <div class="success-story-image">
+                        <img src="assets/success-story-2.jpg" alt="SaaS Customer Retention">
+                    </div>
+                    <div class="success-story-content">
+                        <h3>SaaS Customer Retention</h3>
+                        <p>Developed predictive churn model that identified at-risk customers and improved retention.</p>
+                        <div class="result-highlight">
+                            <span class="result-number">28%</span>
+                            <span class="result-label">Churn Reduction</span>
+                        </div>
+                        <a href="portfolio.html#case-study-2" class="btn btn-secondary">View Case Study</a>
+                    </div>
+                </div>
+                
+                <div class="success-story-card">
+                    <div class="success-story-image">
+                        <img src="assets/success-story-3.jpg" alt="Marketing Automation">
+                    </div>
+                    <div class="success-story-content">
+                        <h3>Marketing Automation</h3>
+                        <p>Created personalized customer journey automation across multiple touchpoints.</p>
+                        <div class="result-highlight">
+                            <span class="result-number">67%</span>
+                            <span class="result-label">Engagement Boost</span>
+                        </div>
+                        <a href="portfolio.html#case-study-3" class="btn btn-secondary">View Case Study</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Common questions about our services and process</p>
+            </div>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How quickly can you start working on my project?</h3>
+                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>After our initial consultation and agreement on the project scope, we can typically begin work within 1-2 weeks. For urgent projects, we may be able to expedite this timeline.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What information do I need to prepare for the consultation?</h3>
+                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>It's helpful to have information about your current business challenges, goals, any existing data or systems you're using, and specific areas where you believe AI can help. However, we can guide you through this process if you're unsure.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you offer ongoing support after project completion?</h3>
+                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer various support and maintenance packages to ensure your AI solutions continue to perform optimally. We can discuss these options during the consultation phase based on your specific needs.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can you work with our existing technical team?</h3>
+                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. We often collaborate with in-house teams, providing specialized AI expertise while empowering your team with knowledge transfer and training. This collaborative approach ensures smooth integration and sustainability.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section (Same as index.html) -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="assets/logo-white.png" alt="Zedzen Logo">
+                    </div>
+                    <p>Empowering businesses with AI & automation solutions to drive growth and efficiency.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="testimonials.html">Testimonials</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html#ai-consulting">AI Consulting</a></li>
+                        <li><a href="services.html#delivery-marketing">Delivery Marketing</a></li>
+                        <li><a href="services.html#automation">Automation</a></li>
+                        <li><a href="services.html#analytics">Analytics</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Tech Avenue, Silicon Valley, CA</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@zedzen.com</li>
+                    </ul>
+                    <div class="newsletter">
+                        <h4>Subscribe to Our Newsletter</h4>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Your email address">
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Zedzen. All rights reserved.</p>
+                <ul class="footer-bottom-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>

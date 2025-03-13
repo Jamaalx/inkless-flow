@@ -1,4 +1,4 @@
-// This is your Prisma schema file
+// prisma/schema.prisma
 
 generator client {
   provider = "prisma-client-js"
@@ -63,8 +63,8 @@ model Document {
   id               String            @id @default(cuid())
   title            String
   description      String?
-  fileUrl          String
-  fileKey          String
+  fileUrl          String            @unique
+  fileKey          String            @unique
   status           DocumentStatus    @default(DRAFT)
   createdAt        DateTime          @default(now())
   updatedAt        DateTime          @updatedAt
@@ -83,16 +83,18 @@ enum DocumentStatus {
 }
 
 model DocumentSigner {
-  id         String       @id @default(cuid())
-  email      String
-  name       String?
-  status     SignerStatus @default(PENDING)
-  documentId String
-  document   Document     @relation(fields: [documentId], references: [id], onDelete: Cascade)
-  signedAt   DateTime?
-  createdAt  DateTime     @default(now())
-  updatedAt  DateTime     @updatedAt
-  fields     DocumentField[]
+  id            String        @id @default(cuid())
+  email         String
+  name          String?
+  status        SignerStatus  @default(PENDING)
+  documentId    String
+  document      Document      @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  signedAt      DateTime?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  fields        DocumentField[]
+  signingOrder  Int?          // New field for sequential signing
+  role          String?       // New field for role-based assignments (e.g., "Primary Signer", "Witness")
 
   @@unique([documentId, email])
 }
@@ -105,21 +107,21 @@ enum SignerStatus {
 }
 
 model DocumentField {
-  id         String          @id @default(cuid())
-  type       FieldType
-  page       Int
-  xPosition  Float
-  yPosition  Float
-  width      Float
-  height     Float
-  value      String?
-  required   Boolean         @default(true)
-  documentId String
-  document   Document        @relation(fields: [documentId], references: [id], onDelete: Cascade)
-  signerId   String?
-  signer     DocumentSigner? @relation(fields: [signerId], references: [id])
-  createdAt  DateTime        @default(now())
-  updatedAt  DateTime        @updatedAt
+  id            String        @id @default(cuid())
+  type          FieldType
+  page          Int
+  xPosition     Float
+  yPosition     Float
+  width         Float
+  height        Float
+  value         String?
+  required      Boolean       @default(true)
+  documentId    String
+  document      Document      @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  signerId      String?
+  signer        DocumentSigner? @relation(fields: [signerId], references: [id])
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
 }
 
 enum FieldType {
@@ -143,25 +145,25 @@ model DocumentActivity {
 }
 
 model Signature {
-  id        String   @id @default(cuid())
-  imageUrl  String
-  imageKey  String
-  isDefault Boolean  @default(false)
-  userId    String
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          String    @id @default(cuid())
+  imageUrl    String
+  imageKey    String
+  isDefault   Boolean   @default(false)
+  userId      String
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 }
 
 model Template {
-  id          String   @id @default(cuid())
+  id          String    @id @default(cuid())
   title       String
   description String?
   fileUrl     String
   fileKey     String
-  isPublic    Boolean  @default(false)
+  isPublic    Boolean   @default(false)
   userId      String
-  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 }
